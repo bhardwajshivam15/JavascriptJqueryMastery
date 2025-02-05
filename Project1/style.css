@@ -1,0 +1,92 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: radial-gradient(circle, #1e3c72, #2a5298, #0f0f0f);
+    overflow: hidden;
+}
+
+/* Clock container with neon glow */
+.clock {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #0ff; /* Neon cyan */
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
+    padding: 25px;
+    width: 350px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    margin-bottom: 30px;
+    animation: glow-pulse 1.5s infinite alternate;
+}
+
+/* Clock glowing animation */
+@keyframes glow-pulse {
+    0% { text-shadow: 0 0 15px #0ff, 0 0 30px #0ff; }
+    100% { text-shadow: 0 0 25px #0ff, 0 0 50px #0ff; }
+}
+
+/* Buttons with 3D effect */
+button {
+    font-size: 1.4rem;
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Start button with gradient */
+.start {
+    background: linear-gradient(135deg, #00ff00, #009900);
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+}
+
+/* Pause button with glowing orange */
+.pause {
+    background: linear-gradient(135deg, #ff9800, #d87d00);
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
+}
+
+/* Stop button with neon red */
+.stop {
+    background: linear-gradient(135deg, #ff0000, #aa0000);
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+/* Button hover effects */
+button:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+/* Button click effect */
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}

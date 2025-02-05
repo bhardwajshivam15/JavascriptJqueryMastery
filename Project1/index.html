@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="clock">
+    <p>00 : 00 : 00</p>
+</div>
+<button class="start">Start</button>
+<button class="pause">Pause</button>
+<button class="stop">Stop</button>
+<script>
+    let totalSeconds=0;
+    let id;
+    $(document).ready(function(){
+        function renderTime(){
+        let hr = Math.floor(totalSeconds/3600);
+        let min = Math.floor(totalSeconds/60-hr*3600);
+        let sec = totalSeconds-hr*3600-min*60;
+        hr = hr>9?hr+"":"0"+hr;
+        min = min>9?min+"":"0"+min;
+        sec = sec>9?sec+"":"0"+sec;
+        console.log(hr,min,sec);
+        $('p').html(`${hr} : ${min} : ${sec}`);
+    }
+        $(".start").click(function(){
+        id = setInterval(()=>{
+        totalSeconds++;
+        renderTime();
+        },1000);
+        });
+        $(".pause").click(function(){
+            renderTime();
+            clearInterval(id);
+            $('.pause').text('continue');
+            $('.pause')
+        });
+        $(".stop").click(function(){
+            totalSeconds=0;
+            renderTime();
+            clearInterval(id);
+        });
+    });
+</script>
+
+</body>
+</html>
