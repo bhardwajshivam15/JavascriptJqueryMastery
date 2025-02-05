@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Generate as Many words as you want.....</h1>
+    <input type="number" placeholder="Select a Number" required>
+    <button type="submit">Generate Words</button>
+    <div class="box">
+    </div>
+    <script>
+        $(document).ready(function () {
+            function getRandomColor() {
+            let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+            return color;
+            } 
+        $('button').click(function(){
+            event.preventDefault();
+            let freq = $('input').val();
+            if(freq!=null){
+                $.ajax({
+            url: `https://random-word-api.herokuapp.com/word?number=${freq}`,
+            method: "GET",
+            success: function (data) {
+                console.log(data);
+                $('.box').html(data.map((el,val)=>`<p id=${val}>${el}</p>`));
+                data.forEach(function (el, val) {
+        $(`#${val}`).css("background-color",`${getRandomColor()}`);
+    });
+            },
+            error: function (error) {
+                console.error("Error fetching data", error);
+            }
+        });
+        }
+        })
+});
+
+    </script>
+</body>
+</html>
