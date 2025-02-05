@@ -22,7 +22,6 @@
         hr = hr>9?hr+"":"0"+hr;
         min = min>9?min+"":"0"+min;
         sec = sec>9?sec+"":"0"+sec;
-        console.log(hr,min,sec);
         $('p').html(`${hr} : ${min} : ${sec}`);
     }
         $(".start").click(function(){
@@ -34,8 +33,6 @@
         $(".pause").click(function(){
             renderTime();
             clearInterval(id);
-            $('.pause').text('continue');
-            $('.pause')
         });
         $(".stop").click(function(){
             totalSeconds=0;
