@@ -65,7 +65,7 @@ button {
 }
 
 /* Pause button with glowing orange */
-.pause,.continue {
+.pause {
     background: linear-gradient(135deg, #ff9800, #d87d00);
     color: white;
     box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
