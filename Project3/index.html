@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="boxes">
+</div>
+<script>
+    $(document).ready(function () {
+    let loader = $("<div>").addClass("loader");
+    $("body").prepend(loader);
+    setTimeout(() => {
+        $.ajax({
+            url: "https://jsonplaceholder.typicode.com/posts",
+            type: "GET",
+            beforeSend: function () {
+                $(".loader").show();
+            },
+            success: function (data) {
+                $(".loader").hide(); 
+                data.map((el) => {
+                    let h1 = $("<h2>").text(`${el.id}`);
+                    let title = $("<h3>").text(el.title);
+                    let body = $("<p>").text(el.body);
+                    let cardDiv = $("<div>").addClass("card");
+                    cardDiv.append(h1, title, body);
+                    $(".boxes").append(cardDiv);
+                });
+            },
+            error: function (error) {
+                $(".loader").hide();
+                console.error("Error fetching data", error);
+                $(".boxes").append("<p class='error'>Failed to load data.</p>");
+            }
+        });
+    }, 2000);
+});
+</script>
+</body>
+</html>
