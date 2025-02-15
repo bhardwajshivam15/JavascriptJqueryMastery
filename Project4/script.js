@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    console.log("makeing a new branch for Development");
     $("#fetchData").click(function () {
         let confirmationNo = $("#confirmationNoInput").val().trim();
 
