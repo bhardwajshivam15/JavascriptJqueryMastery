@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sightseeing Booking Details</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        .input-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            width: 250px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Sightseeing Booking Details</h2>
+
+    <div class="input-container">
+        <input type="text" id="confirmationNoInput" placeholder="Enter Confirmation No">
+        <button id="fetchData">Get Booking Details</button>
+    </div>
+
+    <div class="container hidden" id="dataContainer">
+        <h3>General Information</h3>
+        <p><strong>Confirmation No:</strong> <span id="confirmationNo"></span></p>
+        <p><strong>Validity:</strong> <span id="validity"></span></p>
+        
+        <h3>Booking Details</h3>
+        <table>
+            <tr>
+                <th>Sightseeing ID</th>
+                <th>Currency</th>
+                <th>Start Date</th>
+                <th>Total Price</th>
+            </tr>
+            <tr>
+                <td id="sightseeingID"></td>
+                <td id="currency"></td>
+                <td id="startDate"></td>
+                <td id="totalPrice"></td>
+            </tr>
+        </table>
+
+        <h3>Guest List</h3>
+        <table id="guestTable">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </table>
+
+        <h3>Cancellation Policy</h3>
+        <p><strong>Remarks:</strong> <span id="cancellationRemarks"></span></p>
+        
+        <h3>Voucher</h3>
+        <p><a href="#" target="_blank" id="voucherLink">View Voucher</a></p>
+    </div>
+
+    <p class="error hidden" id="errorMsg"></p>
+
+    <script src="script.js">
+    </script>
+    
+
+</body>
+</html>
