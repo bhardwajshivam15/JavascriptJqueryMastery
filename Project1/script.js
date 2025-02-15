@@ -1,3 +1,4 @@
+let pavan = true;
 let totalSeconds=0;
 let id=-1;
     $(document).ready(function(){
